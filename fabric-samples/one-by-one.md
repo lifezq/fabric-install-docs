@@ -5,6 +5,7 @@ org2.example.com
 [root@localhost first-network]# ls
 base     channel-artifacts  crypto-config       docker-compose-cli.yaml         docker-compose-couch.yaml         docker-compose-org3.yaml  org3-artifacts  scripts
 byfn.sh  configtx.yaml      crypto-config.yaml  docker-compose-couch-org3.yaml  docker-compose-e2e-template.yaml  eyfn.sh                   README.md
+[root@localhost first-network]# export FABRIC_CFG_PATH=$PWD
 [root@localhost first-network]# ls channel-artifacts/
 [root@localhost first-network]# ../bin/configtxgen -profile TwoOrgsOrdererGenesis -channelID byfn-sys-channel -outputBlock ./channel-artifacts/genesis.block
 2019-07-30 14:38:29.802 CST [common/tools/configtxgen] main -> INFO 001 Loading configuration
@@ -28,7 +29,6 @@ genesis.block
 2019-07-30 14:41:03.346 CST [msp] getMspConfig -> INFO 006 Loading NodeOUs
 2019-07-30 14:41:03.346 CST [common/tools/configtxgen/encoder] NewApplicationOrgGroup -> WARN 007 Default policy emission is deprecated, please include policy specificiations for the application org group Org2MSP in configtx.yaml
 2019-07-30 14:41:03.348 CST [common/tools/configtxgen] doOutputChannelCreateTx -> INFO 008 Writing new channel tx
-[root@localhost first-network]# ../bin/configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/Org1MSPanchors.tx -channelID $CHANNEL_NAME -asOrg Org1MSP^C
 [root@localhost first-network]# echo $CHANNEL_NAME
 mychannel
 [root@localhost first-network]# ../bin/configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/Org1MSPanchors.tx -channelID $CHANNEL_NAME -asOrg Org1MSP
